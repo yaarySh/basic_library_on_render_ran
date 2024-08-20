@@ -9,9 +9,15 @@
         font-family: Arial, sans-serif;
         margin: 20px;
       }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       table {
         width: 100%;
         border-collapse: collapse;
+        margin-top: 20px;
       }
       th,
       td {
@@ -24,10 +30,32 @@
       img {
         max-width: 100px;
       }
+      .logout-button {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .logout-button:hover {
+        background-color: #d32f2f;
+      }
+      .welcome-message {
+        margin-top: 20px;
+        font-size: 1.2em;
+      }
     </style>
   </head>
   <body>
-    <h1>My Great Library</h1>
+    <div class="header">
+      <h1>My Great Library</h1>
+      <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+
+    <div class="welcome-message">Hello, {{ session['user_name'] }}!</div>
+
     <table>
       <thead>
         <tr>
